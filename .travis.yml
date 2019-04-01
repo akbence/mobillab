@@ -40,6 +40,6 @@ before_install:
   notifications:
     email:
       recipients:
-      - myemail@address.com
+        - akbence007@gmail.com
       on_success: always
       on_failure: always
