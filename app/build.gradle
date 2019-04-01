@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -33,4 +35,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+    implementation toolkitDependencies.eventbus
+    implementation toolkitDependencies.logging
+
+    implementation daggerDependencies.dagger
+    kapt daggerDependencies.compiler
+    api daggerDependencies.annotation
+
+    testImplementation daggerDependencies.dagger
+    testImplementation daggerDependencies.annotation
+    kaptTest daggerDependencies.compiler
+
 }
