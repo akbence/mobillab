@@ -30,16 +30,16 @@ before_script:
 
 before_install:
   - yes | sdkmanager "platforms;android-28"
-  deploy:
-    provider: releases
-    apikey: $GITHUB_KEY
-    file: app/build/outputs/apk/release/app-release.apk
-    skip_cleanup: true
-    on:
-      tags: true
-  notifications:
-    email:
-      recipients:
-        - akbence007@gmail.com
-      on_success: always
-      on_failure: always
+deploy:
+  provider: releases
+  apikey: $GITHUB_KEY
+  file: app/build/outputs/apk/release/app-release.apk
+  skip_cleanup: true
+  on:
+    tags: true
+notifications:
+  email:
+    recipients:
+      - akbence007@gmail.com
+    on_success: always
+    on_failure: always
