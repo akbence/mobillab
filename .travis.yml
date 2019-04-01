@@ -29,7 +29,7 @@ before_script:
   - adb shell input keyevent 82 &
 
 before_install:
-    - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "platforms;android-28"
   deploy:
     provider: releases
     apikey: $GITHUB_KEY
