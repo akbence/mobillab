@@ -37,4 +37,8 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    companion object {
+        const val KEY_COCTAILS = "KEY_COCTAILS"
+    }
 }

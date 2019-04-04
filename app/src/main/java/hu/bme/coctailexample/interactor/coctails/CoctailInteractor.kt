@@ -9,7 +9,7 @@ import hu.bme.coctailexample.network.TokenApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
-class ArtistsInteractor @Inject constructor(/*private var artistsApi: ArtistsApi, private var tokenApi: TokenApi*/) {
+class CoctailInteractor @Inject constructor(/*private var artistsApi: ArtistsApi, private var tokenApi: TokenApi*/) {
 
     fun getArtists(artistQuery: String) {
 /*
