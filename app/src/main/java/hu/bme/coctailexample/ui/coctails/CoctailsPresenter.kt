@@ -1,8 +1,8 @@
 package hu.bme.coctailexample.ui.coctails
 
-import hu.bme.coctailexample.interactor.coctails.CoctailInteractor
+import hu.bme.coctailexample.interactor.coctails.CoctailsInteractor
 import hu.bme.coctailexample.interactor.coctails.event.GetCoctailsEvent
-import hu.bme.coctailexample.model.Cocktails
+import hu.bme.coctailexample.model.Item
 import hu.bme.coctailexample.ui.Presenter
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -10,7 +10,7 @@ import org.greenrobot.eventbus.ThreadMode
 import java.util.concurrent.Executor
 import javax.inject.Inject
 
-class CoctailsPresenter @Inject constructor(private val executor: Executor, private val coctailsInteractor: CoctailInteractor) : Presenter<CoctailsScreen>() {
+class CoctailsPresenter @Inject constructor(private val executor: Executor, private val coctailsInteractor: CoctailsInteractor) : Presenter<CoctailsScreen>() {
 
     override fun attachScreen(screen: CoctailsScreen) {
         super.attachScreen(screen)
@@ -22,9 +22,9 @@ class CoctailsPresenter @Inject constructor(private val executor: Executor, priv
         super.detachScreen()
     }
 
-    fun refreshArtists(artistQuery: String) {
+    fun refreshCoctails(artistQuery: String) {
         executor.execute {
-            coctailsInteractor.getArtists(artistQuery)
+            coctailsInteractor.getCoctails(artistQuery)
         }
     }
 
@@ -38,7 +38,7 @@ class CoctailsPresenter @Inject constructor(private val executor: Executor, priv
         } else {
             if (screen != null) {
                 if (event.artists != null) {
-                   // screen?.showArtists(event.artists as MutableList<Cocktails>)
+                    screen?.showArtists(event.artists as MutableList<Item>)
                 }
 
             }

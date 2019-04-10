@@ -56,13 +56,13 @@ class CoctailsFragment : Fragment(), CoctailsScreen {
 
         swipeRefreshLayoutArtists.setOnRefreshListener {
             selectedArtist = etArtist.text.toString()
-            artistsPresenter.refreshArtists(selectedArtist!!)
+            artistsPresenter.refreshCoctails(selectedArtist!!)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        artistsPresenter.refreshArtists(selectedArtist!!)
+        artistsPresenter.refreshCoctails(selectedArtist!!)
     }
 
     override fun showArtists(artists: List<Item>?) {

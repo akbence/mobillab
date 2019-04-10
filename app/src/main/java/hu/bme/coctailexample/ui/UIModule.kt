@@ -3,6 +3,8 @@ package hu.bme.coctailexample.ui
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import hu.bme.coctailexample.interactor.coctails.CoctailsInteractor
+import hu.bme.coctailexample.ui.coctails.CoctailsPresenter
 //import hu.bme.coctailexample.interactor.artists.ArtistsInteractor
 //import hu.bme.coctailexample.ui.artists.ArtistsPresenter
 import hu.bme.coctailexample.ui.main.MainPresenter
@@ -20,10 +22,10 @@ class UIModule(private val context: Context) {
     @Singleton
     fun mainPresenter() = MainPresenter()
 
-  /*  @Provides
+    @Provides
     @Singleton
-    fun artistsPresenter(executor: Executor, artistsInteractor: ArtistsInteractor) = ArtistsPresenter(executor, artistsInteractor)
-*/
+    fun artistsPresenter(executor: Executor, coctailsInteractor: CoctailsInteractor) = CoctailsPresenter(executor, coctailsInteractor)
+
     @Provides
     @Singleton
     fun networkExecutor(): Executor = Executors.newFixedThreadPool(1)

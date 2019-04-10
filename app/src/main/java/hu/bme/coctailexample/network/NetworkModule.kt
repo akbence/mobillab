@@ -31,15 +31,15 @@ class NetworkModule {
             .build()
         return retrofit.create(TokenApi::class.java)
     }
-
+*/
     @Provides
     @Singleton
-    fun provideArtistsApi(client: OkHttpClient): ArtistsApi {
+    fun provideCoctailsApi(client: OkHttpClient): CoctailsApi {
         val retrofit = Retrofit.Builder()
             .client(client)
             .baseUrl(NetworkConfig.API_ENDPOINT_ADDRESS)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        return retrofit.create(ArtistsApi::class.java)
-    }*/
+        return retrofit.create(CoctailsApi::class.java)
+    }
 }

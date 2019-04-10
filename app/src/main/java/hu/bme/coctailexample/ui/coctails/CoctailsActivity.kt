@@ -13,7 +13,7 @@ class CoctailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coctails)
         setSupportActionBar(toolbar)
-        supportFragmentManager.beginTransaction().replace(R.id.fragment, CoctailsFragment.newInstance(intent.getStringExtra(MainActivity.KEY_COCTAILS))).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment, CoctailsFragment.newInstance(intent.getStringExtra(MainActivity.KEY_ARTIST))).commit()
         fab.setOnClickListener { view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show() }
     }
 }
