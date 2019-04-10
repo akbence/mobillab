@@ -37,8 +37,8 @@ class CoctailsPresenter @Inject constructor(private val executor: Executor, priv
             }
         } else {
             if (screen != null) {
-                if (event.artists != null) {
-                    screen?.showArtists(event.artists as MutableList<Item>)
+                if (event.drinks != null) {
+                    screen?.showArtists(event.drinks as MutableList<Item>)
                 }
 
             }

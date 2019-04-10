@@ -4,8 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 
 data class Cocktails(
-    @SerializedName("drinkname")
-    var drinkName: String? = null,
-    @SerializedName("description")
-    var description: String? = null
+    @SerializedName("drinks")
+    var drinks: List<Item>? = null
 )

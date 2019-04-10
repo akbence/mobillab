@@ -2,10 +2,7 @@ package hu.bme.coctailexample.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu
-import android.view.MenuItem
 import hu.bme.coctailexample.R
 import hu.bme.coctailexample.injector
 import hu.bme.coctailexample.ui.coctails.CoctailsActivity
@@ -22,7 +19,7 @@ class MainActivity : AppCompatActivity(),MainScreen {
         setContentView(R.layout.activity_main)
         injector.inject(this)
 
-        btnShowArtists.setOnClickListener { mainPresenter.showArtistsSearchList(etCoctails.text.toString()) }
+        btnShowArtists.setOnClickListener { mainPresenter.showCoctailsSearchList(etCoctails.text.toString()) }
     }
 
     override fun onStart() {
@@ -35,9 +32,9 @@ class MainActivity : AppCompatActivity(),MainScreen {
         mainPresenter.detachScreen()
     }
 
-    override fun showCoctails(artistSearchTerm: String) {
+    override fun showCoctails(coctailSearchTerm: String) {
         val intent = Intent(this, CoctailsActivity::class.java)
-        intent.putExtra(KEY_ARTIST, artistSearchTerm)
+        intent.putExtra(KEY_ARTIST, coctailSearchTerm)
         startActivity(intent)
     }
 

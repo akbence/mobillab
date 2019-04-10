@@ -4,7 +4,7 @@ import hu.bme.coctailexample.ui.Presenter
 
 class MainPresenter : Presenter<MainScreen>() {
 
-    fun showArtistsSearchList(artistSearchTerm: String) {
-        screen?.showCoctails(artistSearchTerm)
+    fun showCoctailsSearchList(coctailSearchTerm: String) {
+        screen?.showCoctails(coctailSearchTerm)
     }
 }
