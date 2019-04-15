@@ -1,0 +1,168 @@
+swagger: "2.0"
+info:
+  description: "This is a necessary document for a university subject. It documents the REST API called in my application."
+  version: "1.0.0"
+  title: "Coctail Example App"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "thecocktaildb.com"
+basePath: "/api/json/v1/1"
+tags:
+- name: "cocktail"
+  description: "Along many other data, it gives back the image url, and a brief description about a cocktail"
+
+
+  externalDocs:
+    description: "Find out more about our store"
+    url: "http://swagger.io"
+schemes:
+- "https"
+paths:
+  /search/{name}:
+    get:
+      tags:
+      - "cocktail"
+      summary: "Finds Cocktails by name"
+      description: "Query a cocktail with the given name"
+      operationId: "findCocktailByName"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "name"
+        in: "path"
+        description: "name of cocktail to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Cocktail"
+        400:
+          description: "Invalid status value"
+          
+          
+  /post:
+    post:
+      tags:
+      - "cocktail"
+      summary: "Add a cocktail "
+      description: "Add an own cocktail"
+      operationId: "addById"
+      produces:
+      - "application/json"
+      consumes: 
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Cocktail object that needs to be added"
+        required: true
+        schema:
+          $ref: '#/definitions/Cocktail'
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Cocktail"
+        400:
+          description: "Invalid status value"        
+  /put/{id}:
+    put:
+      tags:
+      - "cocktail"
+      summary: "Modifies cocktail by id"
+      description: "Modify an own cocktail"
+      operationId: "putById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id of cocktail to return"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Cocktail object with new data"
+        required: true
+        schema:
+          $ref: '#/definitions/Cocktail'
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Cocktail"
+        400:
+          description: "Invalid status value"
+  
+          
+  /delete/{id}:
+    delete:
+      tags:
+      - "cocktail"
+      summary: "Deletes cocktail by id"
+      description: "Delete an own cocktail"
+      operationId: "deleteById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id of cocktail to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Cocktail"
+        400:
+          description: "Invalid status value"
+  
+  
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  Cocktail:
+    type: array
+    items:
+      type: "object"
+      properties:
+        strDrink:
+          type: "string"
+          description: "Name of the cocktail"
+          example: "Margarita"
+        strDrinkThumb:
+          type: "string"
+          description: "Photo URL of the selected cocktail"
+          example: "https://www.thecocktaildb.com/images/media/drink/wpxpvu1439905379.jpg"
+        strInstructions:
+          type: "string"
+          description: "Instructions, on how to make this cocktail"
+          example: "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass."
+      
+  
+  
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
