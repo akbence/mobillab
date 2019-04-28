@@ -50,7 +50,7 @@ dependencies {
     implementation toolkitDependencies.gson
     implementation toolkitDependencies.glide
     implementation toolkitDependencies.eventbus
-    implementation toolkitDependencies.roomannotation
+    kapt toolkitDependencies.roomannotation
     implementation toolkitDependencies.room
 
 
