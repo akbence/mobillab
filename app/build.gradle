@@ -32,6 +32,7 @@ android {
             includeAndroidResources = true
         }
     }
+
 }
 
 dependencies {
@@ -49,6 +50,9 @@ dependencies {
     implementation toolkitDependencies.gson
     implementation toolkitDependencies.glide
     implementation toolkitDependencies.eventbus
+    implementation toolkitDependencies.roomannotation
+    implementation toolkitDependencies.room
+
 
     implementation daggerDependencies.dagger
     kapt daggerDependencies.compiler
