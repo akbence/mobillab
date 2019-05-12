@@ -11,6 +11,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(),MainScreen {
+    override fun showNetworkError(coctailSearchTerm: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     @Inject
     lateinit var mainPresenter: MainPresenter
 
@@ -25,6 +29,7 @@ class MainActivity : AppCompatActivity(),MainScreen {
     override fun onStart() {
         super.onStart()
         mainPresenter.attachScreen(this)
+        mainPresenter.refreshCoctails();
     }
 
     override fun onStop() {

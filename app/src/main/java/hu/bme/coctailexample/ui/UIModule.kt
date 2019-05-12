@@ -20,7 +20,7 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun mainPresenter() = MainPresenter()
+    fun mainPresenter(executor: Executor, coctailsInteractor: CoctailsInteractor) = MainPresenter(executor,coctailsInteractor)
 
     @Provides
     @Singleton

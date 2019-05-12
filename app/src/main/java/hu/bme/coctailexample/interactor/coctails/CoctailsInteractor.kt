@@ -23,7 +23,7 @@ class CoctailsInteractor @Inject constructor(private var coctailsApi: CoctailsAp
 
         try {
 
-            val coctailsQueryCall = coctailsApi.getCoctails(artistQuery)
+            val coctailsQueryCall = coctailsApi.getCoctails("whiskey")
             val response = coctailsQueryCall.execute()
             Log.d("Reponse", response.body().toString())
             if (response.code() != 200) {
