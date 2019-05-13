@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -50,6 +51,7 @@ dependencies {
     implementation toolkitDependencies.gson
     implementation toolkitDependencies.glide
     implementation toolkitDependencies.eventbus
+    implementation 'com.google.firebase:firebase-core:16.0.3'
     kapt toolkitDependencies.roomannotation
     implementation toolkitDependencies.room
 

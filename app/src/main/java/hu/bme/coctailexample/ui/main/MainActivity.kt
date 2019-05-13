@@ -3,6 +3,7 @@ package hu.bme.coctailexample.ui.main
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
+import com.google.firebase.analytics.FirebaseAnalytics
 import hu.bme.coctailexample.R
 import hu.bme.coctailexample.injector
 import hu.bme.coctailexample.ui.coctails.CoctailsActivity
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity(),MainScreen {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
+
+
     @Inject
     lateinit var mainPresenter: MainPresenter
 
@@ -22,6 +26,11 @@ class MainActivity : AppCompatActivity(),MainScreen {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         injector.inject(this)
+        val bundle = Bundle()
+/*        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, id)
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name)*/
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image")
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
 
         btnShowArtists.setOnClickListener { mainPresenter.showCoctailsSearchList(etCoctails.text.toString()) }
     }
@@ -46,4 +55,6 @@ class MainActivity : AppCompatActivity(),MainScreen {
     companion object {
         const val KEY_ARTIST = "KEY_ARTIST"
     }
+
+
 }
