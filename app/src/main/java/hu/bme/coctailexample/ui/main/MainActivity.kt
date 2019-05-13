@@ -26,8 +26,10 @@ class MainActivity : AppCompatActivity(),MainScreen {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         injector.inject(this)
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         val bundle = Bundle()
-/*        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, id)
+       /* bundle.putString(FirebaseAnalytics.Param.ITEM_ID, id)
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name)*/
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image")
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)

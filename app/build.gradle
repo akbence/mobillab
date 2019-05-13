@@ -51,7 +51,7 @@ dependencies {
     implementation toolkitDependencies.gson
     implementation toolkitDependencies.glide
     implementation toolkitDependencies.eventbus
-    implementation 'com.google.firebase:firebase-core:16.0.3'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
     kapt toolkitDependencies.roomannotation
     implementation toolkitDependencies.room
 
@@ -81,3 +81,4 @@ dependencies {
     kaptAndroidTest daggerDependencies.compiler
 
 }
+apply plugin: 'com.google.gms.google-services'
